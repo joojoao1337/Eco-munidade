@@ -1,10 +1,10 @@
 /* Variáveis de cores */
 :root {
-    --primary-color: #2ecc71;
-    --secondary-color: #27ae60;
-    --dark-color: #2c3e50;
-    --light-color: #ecf0f1;
-    --text-color: #34495e;
+    --primary-color: #2a7f4e;
+    --secondary-color: #62b57f;
+    --dark-color: #3b4a3f;
+    --light-color: #dbdbdb;
+    --text-color: #535a3a;
 }
 
 /* Reset e configurações gerais */
@@ -26,7 +26,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 5%;
-    background-color: white;
+    background-color: rgb(226, 226, 226);
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -37,11 +37,13 @@ body {
     font-weight: bold;
     font-size: 1.5rem;
     color: var(--primary-color);
+    box-shadow: rgba(0,0,0,0.1);
 }
 
 .logo img {
     width: 70px; /* Tamanho da imagem */
     height: auto;
+    box-shadow: rgba(0,0,0,0.1);
 }
 
 .login-btn {
@@ -83,7 +85,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 .hero-content h1 {
@@ -142,13 +144,14 @@ body {
 /* Form Section */
 .form-section {
     padding: 3rem 5%;
-    min-height: 80vh;
+    background-color: #d6d6d6;
+    min-height: 90vh;
 }
 
 .form-container {
     max-width: 600px;
     margin: 0 auto;
-    background-color: white;
+    background-color: rgb(226, 226, 226);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -180,7 +183,7 @@ body {
     align-items: center;
     padding: 2rem 5%;
     background-color: var(--dark-color);
-    color: white;
+    color: rgb(255, 255, 255);
     flex-wrap: wrap;
     gap: 1rem;
 }
@@ -247,6 +250,108 @@ footer {
     font-size: 1.5rem;
 }
 
+.imagem-coleta {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgb(226, 226, 226);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);    
+}
+
+.recycling-guide {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* Cartões de material */
+.material-card {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.material-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Cabeçalho colorido dos cartões */
+.color-header {
+    padding: 1rem;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Conteúdo dos cartões */
+.content {
+    padding: 1.5rem;
+    background-color: white;
+}
+
+.content h3 {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.content ul {
+    padding-left: 1.2rem;
+}
+
+.content li {
+    margin-bottom: 0.3rem;
+}
+
+/* Cores específicas para cada material */
+.vermelho {
+    background-color: #e53935;
+}
+
+.azul {
+    background-color: #1e88e5;
+}
+
+.verde {
+    background-color: #43a047;
+}
+
+.amarelo {
+    background-color: #fdd835;
+    color: #333;
+}
+
+.preto {
+    background-color: #424242;
+}
+
+.branco {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.laranja {
+    background-color: #fb8c00;
+}
+
+.marrom {
+    background-color: #6d4c41;
+}
+
+.cinza {
+    background-color: #757575;
+}
+
+/* Introdução do guia */
+.guide-intro {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     .nav-menu {
@@ -266,4 +371,5 @@ footer {
     .services-grid {
         grid-template-columns: 1fr;
     }
+
 }
