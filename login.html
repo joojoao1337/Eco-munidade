@@ -45,6 +45,23 @@
             </p>
         </div>
     </section>
+    <script>
+        document.querySelector('form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+
+            // Simulação de login
+            if (email && senha.length >= 6) {
+                alert('Login realizado com sucesso!');
+                // Redirecionaria para a página principal
+                // window.location.href = 'index.html';
+            } else {
+                alert('E-mail ou senha inválidos!\nA senha deve ter pelo menos 6 caracteres.');
+            }
+        });
+    </script>
 </body>
 
 </html>

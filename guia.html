@@ -180,6 +180,67 @@
             </div>
         </div>
     </section>
+    <script>
+        // Adiciona botão de favorito a cada card
+        document.querySelectorAll('.material-card').forEach((card, index) => {
+            const header = card.querySelector('.color-header');
+            const favoriteBtn = document.createElement('button');
+
+            favoriteBtn.innerHTML = '❤️';
+            favoriteBtn.style.cssText = `
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    `;
+
+            favoriteBtn.addEventListener('click', function () {
+                const material = card.querySelector('h3').textContent;
+                const isFavorite = this.style.color === 'red';
+
+                if (isFavorite) {
+                    this.style.color = 'white';
+                    alert(`Removido dos favoritos: ${material}`);
+                } else {
+                    this.style.color = 'red';
+                    alert(`Adicionado aos favoritos: ${material}`);
+
+                    // Salva no localStorage
+                    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+                    favorites.push(material);
+                    localStorage.setItem('favorites', JSON.stringify([...new Set(favorites)]));
+                }
+            });
+
+            header.style.position = 'relative';
+            header.appendChild(favoriteBtn);
+        });
+
+        // Adiciona dicas de reciclagem
+        const tips = [
+            "Lave as embalagens antes de reciclar",
+            "Amasse as garrafas PET para economizar espaço",
+            "Retire as tampas das garrafas de vidro",
+            "Dobre as caixas de papelão para facilitar o transporte"
+        ];
+
+        // Adiciona uma dica aleatória
+        const tipElement = document.createElement('div');
+        tipElement.style.cssText = `
+    background-color: var(--light-color);
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 2rem 0;
+    text-align: center;
+    font-style: italic;
+`;
+        tipElement.innerHTML = `<strong>Dica do dia:</strong> ${tips[Math.floor(Math.random() * tips.length)]}`;
+
+        document.querySelector('.form-container').insertBefore(tipElement, document.querySelector('.recycling-guide'));
+    </script>
 </body>
 
 </html>

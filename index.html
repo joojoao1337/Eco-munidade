@@ -17,6 +17,7 @@
                 <img src="images/logo.png" alt="Eco-munidade Logo">
                 <span>Eco-munidade</span>
             </div>
+
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="pontos-coleta.html">Pontos de Coleta</a></li>
@@ -25,7 +26,32 @@
                 <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="login.html" class="login-btn">Login</a></li>
             </ul>
+
+            <script>
+                // Menu mobile
+                const menuToggle = document.getElementById('menuToggle');
+                const navMenu = document.querySelector('.nav-menu');
+
+                if (menuToggle) {
+                    menuToggle.addEventListener('click', () => {
+                        navMenu.classList.toggle('active');
+                        menuToggle.innerHTML = navMenu.classList.contains('active')
+                            ? '<i class="fas fa-times"></i>'
+                            : '<i class="fas fa-bars"></i>';
+                    });
+
+                    // Fecha menu ao clicar em um link
+                    document.querySelectorAll('.nav-menu a').forEach(link => {
+                        link.addEventListener('click', () => {
+                            navMenu.classList.remove('active');
+                            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                        });
+                    });
+                }
+            </script>
+
         </nav>
+
     </header>
 
     <!-- seção hero-->
@@ -58,6 +84,51 @@
             </div>
         </div>
     </section>
+
+    <!-- Após a seção de serviços -->
+    <section class="counter-section" style="padding: 3rem 5%; background-color: #f0f0f0; text-align: center;">
+        <h2>Impacto da Comunidade</h2>
+        <div class="counter-container" style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem;">
+            <div class="counter-item">
+                <h3 id="kg-reciclados">0</h3>
+                <p>Kg reciclados</p>
+            </div>
+            <div class="counter-item">
+                <h3 id="pessoas-atingidas">0</h3>
+                <p>Pessoas atingidas</p>
+            </div>
+            <div class="counter-item">
+                <h3 id="pontos-ativos">0</h3>
+                <p>Pontos ativos</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Contador animado
+        function animateCounter(elementId, finalValue, duration = 2000) {
+            const element = document.getElementById(elementId);
+            let startValue = 0;
+            const increment = finalValue / (duration / 16); // 60fps
+
+            const timer = setInterval(() => {
+                startValue += increment;
+                if (startValue >= finalValue) {
+                    element.textContent = finalValue;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(startValue);
+                }
+            }, 16);
+        }
+
+        // Inicia contadores quando a página carrega
+        window.addEventListener('load', () => {
+            animateCounter('kg-reciclados', 1250);
+            animateCounter('pessoas-atingidas', 340);
+            animateCounter('pontos-ativos', 15);
+        });
+    </script>
 
     <!-- footer -->
     <footer>
